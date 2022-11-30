@@ -124,6 +124,30 @@ mod tests {
         assert_eq!(res, "stream: OK\0");
     }
 
+
+    #[test]
+    fn can_scan_file() {
+        let mut eicar = std::fs::File::open("resources/eicar.txt").unwrap();
+        let res = scan("localhost:3310", &mut eicar, None);
+        assert!(res.is_ok());
+    }
+
+
+    #[test]
+    fn detects_eicar() {
+        let mut eicar = std::fs::File::open("resources/eicar.txt").unwrap();
+        let res = scan("localhost:3310", &mut eicar, None).unwrap();
+        assert_eq!(res, "stream: Win.Test.EICAR_HDB-1 FOUND\0");
+    }
+
+
+    #[test]
+    fn can_scan_string() {
+        let mut eicar = r"X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*".as_bytes();
+        let res = scan("localhost:3310", &mut eicar, None).unwrap();
+        assert_eq!(res, "stream: Win.Test.EICAR_HDB-1 FOUND\0");
+    }
+
     #[test]
     fn can_ping_with_valid_addr() {
         let resp = ping("localhost:3310");
