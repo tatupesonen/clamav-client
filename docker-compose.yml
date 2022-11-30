@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  clamav:
+    image: mkodockx/docker-clamav:alpine-idb-amd64
+    ports:
+      - 3310:3310
