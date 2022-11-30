@@ -4,6 +4,7 @@ version = "0.1.2"
 description = "ClamAV TCP client"
 license = "MIT"
 edition = "2021"
+repository = "https://github.com/tatupesonen/clamav-client"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
