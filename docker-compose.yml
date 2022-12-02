@@ -2,6 +2,7 @@ version: '3'
 
 services:
   clamav:
-    image: mkodockx/docker-clamav:alpine-idb-amd64
+    image: clamav/clamav:stable
     ports:
-      - 3310:3310
+        - 3310:3310
+        - 7537:7357

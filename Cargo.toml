@@ -1,6 +1,6 @@
 [package]
 name = "clamav-tcp"
-version = "0.1.3"
+version = "0.2.0"
 description = "ClamAV TCP client"
 license = "MIT"
 documentation = "https://docs.rs/clamav-tcp"
