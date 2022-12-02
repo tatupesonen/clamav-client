@@ -1,11 +1,14 @@
+use serde::{Deserialize, Serialize};
+
 use crate::ClamAVClientError;
 use std::str::FromStr;
 
 /// A struct that describes the result of the scan.
+#[derive(Deserialize, Debug, Serialize)]
 pub struct ScanResult {
-		/// If a malicious file was found within the scanned item.
+    /// If a malicious file was found within the scanned item.
     pub is_infected: bool,
-		/// Names of the detected infections.
+    /// Names of the detected infections.
     pub detected_infections: Vec<String>,
 }
 
